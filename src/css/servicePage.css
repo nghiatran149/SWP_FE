@@ -1,0 +1,55 @@
+.aquatic-services {
+    font-family: Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  .aquatic-services h1 {
+    color: #666;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .aquatic-services h2 {
+    color: #666;
+    font-size: 1.8rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .aquatic-services p {
+    margin-bottom: 1rem;
+  }
+  
+  .main-service {
+    margin-bottom: 3rem;
+  }
+  
+  .service-options, .telehealth-services {
+    margin-top: 3rem;
+  }
+  
+  .img-fluid {
+    margin-bottom: 1rem;
+  }
+  
+  .btn-outline-primary {
+    color: #f60;
+    border-color: #f60;
+    margin-top: 1rem;
+  }
+  
+  .btn-outline-primary:hover {
+    background-color: #f60;
+    color: white;
+  }
+  
+  @media (max-width: 768px) {
+    .aquatic-services h1 {
+      font-size: 2rem;
+    }
+  
+    .aquatic-services h2 {
+      font-size: 1.5rem;
+    }
+  }
