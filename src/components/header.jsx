@@ -24,7 +24,6 @@ export default function Header() {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link href="#about">ABOUT US</Nav.Link>
-              <Nav.Link href="#faq">FAQ</Nav.Link>
               <Nav.Link href="/service">SERVICES</Nav.Link>
             </Nav>
             <Nav className="auth-buttons">
