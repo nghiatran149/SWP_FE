@@ -48,3 +48,8 @@
     display: inline-block;
     vertical-align: top;
   }
+  
+  .brand-img {
+    width: 100%;
+    height: auto;
+  }

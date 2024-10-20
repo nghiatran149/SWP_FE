@@ -12,13 +12,21 @@ const Homepage = () => {
       <Header/>
 
       <header className="text-white text-center py-5 mb-4">
-        <Container>
+        <Row>
+          <Col md={8}>
+          <Container>
           <h1>GOT A SICK KOI FISH?</h1>
           <p>Our mobile veterinary service is here to help pet fish in Ho Chi Minh City.</p>
           <Link to="/service">
           <Button variant="light" size="lg">REQUEST APPOINTMENT</Button>
           </Link>
         </Container>
+          </Col>
+          <Col md={4}>
+          <img className="brand-img"src="https://www.mercurynews.com/wp-content/uploads/2021/03/SJM-L-FISHVET-03XX-1.jpg?w=620"></img>
+          </Col>
+        </Row>
+        
       </header>
 
       {/* <Container classname="services-introduction">
