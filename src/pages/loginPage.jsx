@@ -4,6 +4,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { FaGoogle } from 'react-icons/fa';
 import '../css/authPages.css';
 import { accountService } from '../services/accountServices';
+import { useDispatch } from 'react-redux';
+import { loginAccount } from '../store/user/action';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -11,37 +13,42 @@ const LoginPage = () => {
   const [remember, setRemember] = useState(false);
   const [error, setError] = useState('');
   const navigate = useNavigate();
+  const dispatch= useDispatch()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
-
-    try {
-      const response = await accountService.loginUser({ email, password });
-      console.log('Login successful', response.data);
-
-      // Assuming the response structure matches your API
-      const { token, user } = response.data;
-
-      // Store the token
-      localStorage.setItem('authToken', token);
-
-      // Store user info if needed
-      localStorage.setItem('user', JSON.stringify(user));
-
-      // Handle "Remember me"
-      if (remember) {
-        localStorage.setItem('rememberUser', email);
-      } else {
-        localStorage.removeItem('rememberUser');
-      }
-
-      // Navigate to homepage
-      navigate('/');
-
-    } catch (err) {
-      setError(err.response?.data?.message || 'An error occurred during login');
+    let data={
+      email: email,
+      password: password
     }
+    dispatch(loginAccount(data, navigate))
+    // try {
+    //   const response = await accountService.loginUser({ email, password });
+    //   console.log('Login successful', response.data);
+
+    //   // Assuming the response structure matches your API
+    //   const { token, user } = response.data;
+
+    //   // Store the token
+    //   localStorage.setItem('authToken', token);
+
+    //   // Store user info if needed
+    //   localStorage.setItem('user', JSON.stringify(user));
+
+    //   // Handle "Remember me"
+    //   if (remember) {
+    //     localStorage.setItem('rememberUser', email);
+    //   } else {
+    //     localStorage.removeItem('rememberUser');
+    //   }
+
+    //   // Navigate to homepage
+    //   navigate('/');
+
+    // } catch (err) {
+    //   setError(err.response?.data?.message || 'An error occurred during login');
+    // }
   };
 
   return (

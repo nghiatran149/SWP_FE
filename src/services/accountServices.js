@@ -4,9 +4,16 @@ export const accountService = {
     loginUser(data) {
         return API.post("/Auth/sign-in", data);
       },
-      registerUser(data) {
+    registerUser(data) {
         return API.post("/Auth/customers", data);
       },
+      fetchUserByToken(data) {
+        return API.get("/Auth/FetchUserByToken", {
+          params: {
+            token: data
+          },
+        })
+      }
     //   getRole() {
     //     return API.get("/roles");
     //   },

@@ -1,11 +1,24 @@
 import React from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../css/header.css';
 import logoswp from '../assets/logoswp.jpg'
+import { useDispatch, useSelector } from 'react-redux';
+import { MdAccountCircle } from "react-icons/md";
+import Dropdown from 'react-bootstrap/Dropdown';
+import { Logout } from '../store/user/action';
+
 
 export default function Header() {
+  const uid = useSelector((state) => state.USER.uid);
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const handleLogout = () => {
+    localStorage.removeItem("accessToken")
+    dispatch(Logout())
+    navigate("/")
+  }
   return (
     <div>
       <Navbar bg="light" expand="lg" className="mb-4">
@@ -27,8 +40,28 @@ export default function Header() {
               <Nav.Link href="/service">SERVICES</Nav.Link>
             </Nav>
             <Nav className="auth-buttons">
-              <Link to="/login" className="btn-login me-2">Login</Link>
-              <Link to="/register" className="btn-register">Register</Link>
+
+              {uid ? <div>
+                <Dropdown>
+                  <Dropdown.Toggle as="div" id="dropdown-basic" style={{ border: 'none', background: 'transparent', padding: 0 }}>
+                    <MdAccountCircle
+                      style={{
+                        fontSize: "1.8rem",
+                        color: "#333",
+                        cursor: "pointer",
+                        transition: "color 0.3s ease",
+                        "&:hover": {
+                          color: "#007bff",
+                        }
+                      }}
+                    />
+                  </Dropdown.Toggle>
+                  <Dropdown.Menu>
+                    <Dropdown.Item onClick={handleLogout}>Log Out</Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+              </div> : <><Link to="/login" className="btn-login me-2">Login</Link>
+                <Link to="/register" className="btn-register">Register</Link></>}
             </Nav>
           </Navbar.Collapse>
         </Container>
