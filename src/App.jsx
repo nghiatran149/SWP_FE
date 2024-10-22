@@ -9,6 +9,8 @@ import RegisterPage from './pages/registerPage'
 import ForgotPassword from './pages/forgotPasswordPage'
 import ResetPassword from './pages/resetPasswordPage'
 import ServicePage from './pages/servicePage'
+import PaymentSuccessPage from './pages/payment/paymentSuccess'
+import PaymentFailedPage from './pages/payment/paymentFail'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchUserByTokenApi } from './store/user/action'
@@ -38,7 +40,9 @@ function App() {
       <Route path='/forgot' element={<ForgotPassword/>}/>
       <Route path='/reset' element={<ResetPassword/>}/>
       <Route path='/service' element={<ServicePage/>}/>
-      
+
+      <Route path='/paymentSuccess' element={<PaymentSuccessPage/>}/>
+      <Route path='/paymentFail' element={<PaymentFailedPage/>}/>
     </Routes>
     </>
   )
