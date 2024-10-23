@@ -9,6 +9,9 @@ const initialState = {
   uid: "",
   idEmployee: "",
   refreshToken: "",
+  phoneNumber:'',
+  email:"",
+  address:''
 };
 
 const reducer = (state = initialState, action) => {
@@ -44,6 +47,9 @@ const reducer = (state = initialState, action) => {
           action.payload?.customerResponse?.img ||
           action.payload?.salonEmployeeResponse?.img,
         uid: action.payload.id,
+        email: action.payload.email,
+        phoneNumber: action.payload.phoneNumber,
+        address: action.payload.address
         // idOwner: action.payload?.salonOwnerResponse?.id,
         // idCustomer: action.payload?.customerResponse?.id,
         // idEmployee: action.payload?.salonEmployeeResponse?.id,

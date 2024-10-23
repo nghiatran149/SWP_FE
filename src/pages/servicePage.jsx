@@ -3,6 +3,7 @@ import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import '../css/servicePage.css'
 import Header from '../components/header';
 import { useSelector } from 'react-redux';
+import Booking from '../components/Booking';
 
 const ServicePage = () => {
   const uid = useSelector((state) => state.USER.uid);
@@ -53,6 +54,7 @@ const ServicePage = () => {
               {uid ? <Button variant="outline-primary">SUBSCRIPTION SERVICE NOW</Button> : <Button variant="outline-primary">SIGN UP FOR SUBSCRIPTION SERVICE</Button>}
             </Col>
           </Row>
+          <Booking/>
         </Container>
         </>
       );

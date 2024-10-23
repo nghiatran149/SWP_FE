@@ -52,7 +52,7 @@ export function loginAccount(data, navigate) {
       try {
         const response = await accountService.fetchUserByToken(data);
         if (response.status === 200 || response.status === 201) {
-            console.log("ress", response.data);
+            console.log("ress1", response.data);
             
           dispatch(fetchUser(response.data?.result));
           return response; // Return the response so that .then can be used
